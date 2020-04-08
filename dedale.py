@@ -1,5 +1,5 @@
 from tkinter import *
-
+from random import randint
 
 incr = 2
 size = incr * 10
@@ -173,12 +173,17 @@ with open(path) as fp:
 
 w.pack()
 
-setACaseXY(47, 21, 'green')
-map[21][47] = 2
+eXit=0
+exYt=0
+while map[exYt][eXit]==1:
+    eXit=randint(1,62)
+    exYt=randint(1,29)
+setACaseXY(eXit, exYt, 'green')
+map[exYt][eXit] = 2
 
 
-for value in range(0, 1000):
-    master.after(value * 100, algo, value)
+for value in range(0, 2000):
+    master.after(value * 50, algo, value)
 
 checkered(w,10)
 
