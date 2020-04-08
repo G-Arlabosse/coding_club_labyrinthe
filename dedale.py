@@ -87,11 +87,11 @@ def setACaseXY(X, Y, color):
 
 
 master = Tk()
-canvas_width = 1000
+canvas_width = 1300
 canvas_height = 1000
 w = Canvas(master,
-           width=1000,
-           height=1000)
+           width=canvas_width,
+           height=canvas_height)
 
 
 
