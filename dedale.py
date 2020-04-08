@@ -72,58 +72,62 @@ def down():
 
 
 dir = []
+prevDirection="down"
 
 def algo(value):
+    global prevDirection
 #-------------------------------------------------------------------------------------------------- Vers le bas
-    if (map[posY - 1][posX] == -1) :
-        D= True
-        U= False
+    if prevDirection=="down":
         if (map[posY][posX - 1] == 1) and (map[posY][posX + 1] == 1) and (map[posY + 1][posX] == 1):
             up()
+            prevDirection="up"
         elif (map[posY][posX - 1] == 1) and (map[posY + 1][posX] == 1) :
             right()
+            prevDirection="right"
         elif (map[posY][posX - 1] == 1) and not (map[posY + 1][posX] == 1) :
             down()
         elif (map[posY][posX - 1] != 1) :
             left()
+            prevDirection="left"
 #--------------------------------------------------------------------------------------------------  Vers le haut
-    elif (map[posY + 1][posX] == -1) :
-        U= True
-        D= False
+    elif prevDirection=="up":
         if (map[posY][posX - 1] == 1) and (map[posY][posX + 1] == 1) and (map[posY - 1][posX] == 1):
             down()
+            prevDirection="down"
         elif (map[posY][posX + 1] == 1) and (map[posY - 1][posX] == 1) :
             left()
+            prevDirection="left"
         elif (map[posY][posX + 1] == 1) and not (map[posY - 1][posX] == 1) :
             up()
         elif (map[posY][posX + 1] != 1) :
             right()
+            prevDirection="right"
 #-------------------------------------------------------------------------------------------------- Vers la droite
-    elif (map[posY][posX - 1] == -1) :
-        R= True
-        L= False
+    elif prevDirection=="right":
         if (map[posY - 1][posX] == 1) and (map[posY][posX + 1] == 1) and (map[posY + 1][posX] == 1):
-            while (map[posY][posX - 1] != 0):
-                left()
             left()
+            prevDirection="left"
         elif (map[posY + 1][posX] == 1) and (map[posY][posX + 1] == 1) :
             up()
+            prevDirection="up"
         elif (map[posY + 1][posX] == 1) and not (map[posY][posX + 1] == 1) :
             right()
         elif (map[posY + 1][posX] != 1) :
             down()
+            prevDirection="down"
 #-------------------------------------------------------------------------------------------------- Vers la gauche
-    elif (map[posY][posX + 1] == -1) :
-        L= True
-        R= False
+    elif prevDirection=="left":
         if (map[posY][posX - 1] == 1) and (map[posY - 1][posX] == 1) and (map[posY + 1][posX] == 1):
             right()
+            prevDirection="right"
         elif (map[posY - 1][posX] == 1) and (map[posY][posX - 1] == 1) :
             down()
+            prevDirection="down"
         elif (map[posY - 1][posX] == 1) and not (map[posY][posX - 1] == 1) :
             left()
         elif (map[posY - 1][posX] != 1) :
             up()
+            prevDirection="up"
 #------------------------------------------------------------------------------------------------ Sinon, bas
     else:
         down()
