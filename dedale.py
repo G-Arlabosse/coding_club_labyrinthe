@@ -171,6 +171,7 @@ with open(path) as fp:
        line = fp.readline()
        cnt += 1
 
+
 w.pack()
 
 eXit=0
@@ -178,12 +179,12 @@ exYt=0
 while map[exYt][eXit]==1:
     eXit=randint(1,62)
     exYt=randint(1,29)
-setACaseXY(eXit, exYt, 'green')
+setACaseXY(eXit,exYt, 'green')
 map[exYt][eXit] = 2
 
 
 for value in range(0, 2000):
-    master.after(value * 33, algo, value)
+    master.after(value * 20, algo, value)
 
 checkered(w,10)
 
