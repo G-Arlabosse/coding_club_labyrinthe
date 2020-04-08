@@ -184,7 +184,7 @@ map[exYt][eXit] = 2
 
 
 for value in range(0, 2000):
-    master.after(value * 20, algo, value)
+    master.after(value * 33, algo, value)
 
 checkered(w,10)
 
