@@ -74,8 +74,59 @@ def down():
 dir = []
 
 def algo(value):
-    down()
-
+#-------------------------------------------------------------------------------------------------- Vers le bas
+    if (map[posY - 1][posX] == -1) :
+        D= True
+        U= False
+        if (map[posY][posX - 1] == 1) and (map[posY][posX + 1] == 1) and (map[posY + 1][posX] == 1):
+            up()
+        elif (map[posY][posX - 1] == 1) and (map[posY + 1][posX] == 1) :
+            right()
+        elif (map[posY][posX - 1] == 1) and not (map[posY + 1][posX] == 1) :
+            down()
+        elif (map[posY][posX - 1] != 1) :
+            left()
+#--------------------------------------------------------------------------------------------------  Vers le haut
+    elif (map[posY + 1][posX] == -1) :
+        U= True
+        D= False
+        if (map[posY][posX - 1] == 1) and (map[posY][posX + 1] == 1) and (map[posY - 1][posX] == 1):
+            down()
+        elif (map[posY][posX + 1] == 1) and (map[posY - 1][posX] == 1) :
+            left()
+        elif (map[posY][posX + 1] == 1) and not (map[posY - 1][posX] == 1) :
+            up()
+        elif (map[posY][posX + 1] != 1) :
+            right()
+#-------------------------------------------------------------------------------------------------- Vers la droite
+    elif (map[posY][posX - 1] == -1) :
+        R= True
+        L= False
+        if (map[posY - 1][posX] == 1) and (map[posY][posX + 1] == 1) and (map[posY + 1][posX] == 1):
+            while (map[posY][posX - 1] != 0):
+                left()
+            left()
+        elif (map[posY + 1][posX] == 1) and (map[posY][posX + 1] == 1) :
+            up()
+        elif (map[posY + 1][posX] == 1) and not (map[posY][posX + 1] == 1) :
+            right()
+        elif (map[posY + 1][posX] != 1) :
+            down()
+#-------------------------------------------------------------------------------------------------- Vers la gauche
+    elif (map[posY][posX + 1] == -1) :
+        L= True
+        R= False
+        if (map[posY][posX - 1] == 1) and (map[posY - 1][posX] == 1) and (map[posY + 1][posX] == 1):
+            right()
+        elif (map[posY - 1][posX] == 1) and (map[posY][posX - 1] == 1) :
+            down()
+        elif (map[posY - 1][posX] == 1) and not (map[posY][posX - 1] == 1) :
+            left()
+        elif (map[posY - 1][posX] != 1) :
+            up()
+#------------------------------------------------------------------------------------------------ Sinon, bas
+    else:
+        down()
 
 
 
